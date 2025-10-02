@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Art Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- html2canvas untuk export PNG -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas"></script>
+</head>
+<body>
+  <h2>Pixel Art Generator</h2>
+
+  <div class="controls">
+    <label for="colorPicker">🎨 Color: </label>
+    <input type="color" id="colorPicker" value="#000000">
+
+    <label for="gridSize">📏 Grid: </label>
+    <select id="gridSize">
+      <option value="8">8x8</option>
+      <option value="16" selected>16x16</option>
+      <option value="32">32x32</option>
+      <option value="64">64x64</option>
+    </select>
+    <button onclick="setGrid()">Set</button>
+
+    <button onclick="clearGrid()">Clear</button>
+    <button onclick="exportImage()">Download PNG</button>
+  </div>
+
+  <div id="grid"></div>
+
+  <footer>
+    <p>Made with ❤️ | Pixel Art Generator</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
