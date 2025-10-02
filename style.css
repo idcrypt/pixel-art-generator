@@ -49,3 +49,26 @@ footer {
   font-size: 12px;
   color: #555;
 }
+
+#palette {
+  display: inline-flex;
+  margin: 10px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.swatch {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  border-right: 1px solid #aaa;
+}
+
+.swatch:last-child {
+  border-right: none;
+}
+
+.swatch:hover {
+  opacity: 0.7;
+}
