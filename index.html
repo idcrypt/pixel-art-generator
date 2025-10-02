@@ -1,55 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Pixel Art Generator</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- html2canvas untuk export PNG -->
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixel Art Generator</title>
+<link rel="stylesheet" href="style.css">
+<!-- html2canvas for export PNG -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 <body>
-  <h2>Pixel Art Generator</h2>
+<div class="app">
+<header>
+<h1>Pixel Art Generator</h1>
+<p class="subtitle">Draw, upload image, save, undo/redo, and export — no backend required.</p>
+</header>
 
-  <div class="controls">
-    <label for="colorPicker">🎨 Color: </label>
-    <input type="color" id="colorPicker" value="#000000">
 
-    <!-- Palet warna cepat -->
-    <div id="palette">
-      <div class="swatch" style="background:#000000" data-color="#000000"></div>
-      <div class="swatch" style="background:#ffffff" data-color="#ffffff"></div>
-      <div class="swatch" style="background:#ff0000" data-color="#ff0000"></div>
-      <div class="swatch" style="background:#00ff00" data-color="#00ff00"></div>
-      <div class="swatch" style="background:#0000ff" data-color="#0000ff"></div>
-      <div class="swatch" style="background:#ffff00" data-color="#ffff00"></div>
-    </div>
+<section class="toolbar">
+<div class="left">
+<label>🎨 Color</label>
+<input type="color" id="colorPicker" value="#000000">
 
-    <br>
 
-    <label for="gridSize">📏 Grid: </label>
-    <select id="gridSize">
-      <option value="8">8x8</option>
-      <option value="16" selected>16x16</option>
-      <option value="32">32x32</option>
-      <option value="64">64x64</option>
-    </select>
-    <button onclick="setGrid()">Set</button>
+<div id="palette" aria-hidden="false">
+<div class="swatch" style="background:#000000" data-color="#000000"></div>
+<div class="swatch" style="background:#ffffff" data-color="#ffffff"></div>
+<div class="swatch" style="background:#ff4d4d" data-color="#ff4d4d"></div>
+<div class="swatch" style="background:#4dff88" data-color="#4dff88"></div>
+<div class="swatch" style="background:#4da6ff" data-color="#4da6ff"></div>
+<div class="swatch" style="background:#ffd24d" data-color="#ffd24d"></div>
+</div>
+</div>
 
-    <button onclick="clearGrid()">Clear</button>
-    <button onclick="undo()">Undo</button>
-    <button onclick="redo()">Redo</button>
-    <button onclick="exportImage()">Download PNG</button>
-    <button onclick="saveJSON()">Save JSON</button>
-    <button onclick="loadJSON()">Load JSON</button>
-    <input type="file" id="fileInput" style="display:none" accept="application/json">
-  </div>
 
-  <div id="grid"></div>
+<div class="center">
+<label>📏 Grid</label>
+<select id="gridSize">
+<option value="8">8 x 8</option>
+<option value="16" selected>16 x 16</option>
+<option value="32">32 x 32</option>
+<option value="64">64 x 64</option>
+</select>
+<button id="setGridBtn">Set</button>
 
-  <footer>
-    <p>Made with ❤️ | Pixel Art Generator</p>
-  </footer>
 
-  <script src="script.js"></script>
+<label>Zoom</label>
+<input type="range" id="zoomRange" min="10" max="40" value="20">
+<span id="zoomVal">20px</span>
+</div>
+
+
+<div class="right">
+<button id="clearBtn">Clear</button>
+<button id="undoBtn">Undo</button>
+<button id="redoBtn">Redo</button>
+<button id="downloadBtn">Download PNG</button>
+<button id="saveBtn">Save JSON</button>
+<button id="loadBtn">Load JSON</button>
+<button id="uploadBtn">Upload Image</button>
+
+
+<input type="file" id="fileInput" accept="application/json" style="display:none">
+<input type="file" id="imageInput" accept="image/*" style="display:none">
+</div>
+</section>
+
+
+<main>
+<div id="gridWrapper">
+<div id="grid" role="grid" tabindex="0"></div>
+</div>
+</main>
+
+
+<footer>
+<p>Made with ❤️ — pixel-art-generator (no-backend)</p>
+</footer>
+</div>
+
+
+<script src="script.js"></script>
 </body>
 </html>
