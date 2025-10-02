@@ -11,21 +11,34 @@
   <h2>Pixel Art Generator</h2>
 
   <div class="controls">
-    <label for="colorPicker">🎨 Color: </label>
-    <input type="color" id="colorPicker" value="#000000">
+  <label for="colorPicker">🎨 Color: </label>
+  <input type="color" id="colorPicker" value="#000000">
 
-    <label for="gridSize">📏 Grid: </label>
-    <select id="gridSize">
-      <option value="8">8x8</option>
-      <option value="16" selected>16x16</option>
-      <option value="32">32x32</option>
-      <option value="64">64x64</option>
-    </select>
-    <button onclick="setGrid()">Set</button>
-
-    <button onclick="clearGrid()">Clear</button>
-    <button onclick="exportImage()">Download PNG</button>
+  <!-- Palet warna cepat -->
+  <div id="palette">
+    <div class="swatch" style="background:#000000" data-color="#000000"></div>
+    <div class="swatch" style="background:#ffffff" data-color="#ffffff"></div>
+    <div class="swatch" style="background:#ff0000" data-color="#ff0000"></div>
+    <div class="swatch" style="background:#00ff00" data-color="#00ff00"></div>
+    <div class="swatch" style="background:#0000ff" data-color="#0000ff"></div>
+    <div class="swatch" style="background:#ffff00" data-color="#ffff00"></div>
   </div>
+
+  <br>
+
+  <label for="gridSize">📏 Grid: </label>
+  <select id="gridSize">
+    <option value="8">8x8</option>
+    <option value="16" selected>16x16</option>
+    <option value="32">32x32</option>
+    <option value="64">64x64</option>
+  </select>
+  <button onclick="setGrid()">Set</button>
+
+  <button onclick="clearGrid()">Clear</button>
+  <button onclick="exportImage()">Download PNG</button>
+</div>
+
 
   <div id="grid"></div>
 
